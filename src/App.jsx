@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import Cart from './components/Cart.jsx';
 import Checkout from './components/Checkout.jsx';
 import Header from './components/Header.jsx';
@@ -17,16 +16,6 @@ function App() {
         <Checkout />
       </CartContextProvider>
     </UserProgressContextProvider>
-=======
-import Header from "./components/Header";
-import Meals from "./components/Meals";
-function App() {
-  return (
-    <>
-      <Header />
-      <Meals />
-    </>
->>>>>>> d6a109e243ca48e1d1cdbb5a48eb9618ff873725
   );
 }
 
