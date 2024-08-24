@@ -42,12 +42,12 @@ export default function Checkout() {
         <h2>Resumen del pedido</h2>
         <p>Monto total: {currencyFormatter.format(cartTotal)}</p>
 
-        <Input label="Full Name" type="text" id="name" />
-        <Input label="E-Mail Address" type="email" id="email" />
-        <Input label="Street" type="text" id="street" />
+        <Input label="Nombre Completo" type="text" id="name" />
+        <Input label="Correo Electrónico" type="email" id="email" />
+        <Input label="Dirección" type="text" id="street" />
         <div className="control-row">
-          <Input label="Postal Code" type="text" id="postal-code" />
-          <Input label="City" type="text" id="city" />
+          <Input label="Código Postal" type="text" id="postal-code" />
+          <Input label="Ciudad" type="text" id="city" />
         </div>
 
         <div>
