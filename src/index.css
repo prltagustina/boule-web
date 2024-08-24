@@ -18,7 +18,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 3rem 10%;
+  padding: 1rem 5%; /* Ajuste inicial para ser más flexible en dispositivos pequeños */
 }
 
 #main-header #title {
@@ -27,12 +27,47 @@ body {
   align-items: center;
 }
 
+/* Estilos generales para el logo */
 #main-header #title img {
-  width: 4rem;
-  height: 4rem;
+  width: 10vw; /* Tamaño relativo a la vista */
+  max-width: 150px; /* Tamaño máximo para pantallas grandes */
+  height: auto; /* Mantener proporciones */
   object-fit: contain;
   border-radius: 50%;
-  border: 2px solid #ffc404;
+}
+
+/* Media queries para diferentes dispositivos */
+
+/* Estilo para pantallas grandes (desktop) */
+@media (min-width: 1025px) {
+  #main-header #title img {
+    width: 8vw; /* Ajustar según sea necesario */
+  }
+  #main-header {
+    padding: 2rem 10%; /* Ajuste mayor para pantallas grandes */
+  }
+}
+
+/* Estilo para tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+  #main-header #title img {
+    width: 12vw; /* Ajustar para tablets */
+  }
+  #main-header {
+    padding: 1.5rem 7%; /* Ajuste para tablets */
+  }
+}
+
+/* Estilo para móviles */
+@media (max-width: 767px) {
+  #main-header #title img {
+    width: 15vw; /* Tamaño para móviles */
+  }
+  #main-header {
+    padding: 1rem 5%; /* Ajuste para móviles */
+    flex-direction: column; /* Apilar el contenido del header en dispositivos móviles */
+    align-items: flex-start; /* Alinear los elementos del header al inicio */
+  }
 }
 
 #main-header button {
@@ -61,6 +96,13 @@ h1 {
   gap: 1rem;
 }
 
+/* Media queries para el contenedor de comidas */
+@media (max-width: 1024px) {
+  #meals {
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); /* Ajuste para pantallas más pequeñas */
+  }
+}
+
 .meal-item {
   background-color: #1d1a16;
   border-radius: 1rem;
@@ -78,8 +120,28 @@ h1 {
 
 .meal-item img {
   width: 100%;
-  height: 20rem;
+  height: auto; /* Mantener proporciones */
+  max-height: 20rem; /* Ajustar altura */
   object-fit: cover;
+}
+
+/* Media queries para imágenes de comidas */
+@media (min-width: 1025px) {
+  .meal-item img {
+    max-height: 18rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .meal-item img {
+    max-height: 16rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .meal-item img {
+    max-height: 12rem;
+  }
 }
 
 .meal-item h3 {

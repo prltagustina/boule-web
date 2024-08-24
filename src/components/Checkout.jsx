@@ -39,8 +39,8 @@ export default function Checkout() {
   return (
     <Modal open={userProgressCtx.progress === 'checkout'} onClose={handleClose}>
       <form onSubmit={handleWhatsAppOrder}>
-        <h2>Checkout</h2>
-        <p>Total Amount: {currencyFormatter.format(cartTotal)}</p>
+        <h2>Resumen del pedido</h2>
+        <p>Monto total: {currencyFormatter.format(cartTotal)}</p>
 
         <Input label="Full Name" type="text" id="name" />
         <Input label="E-Mail Address" type="email" id="email" />
@@ -51,7 +51,7 @@ export default function Checkout() {
         </div>
 
         <div>
-          <label>Payment Method</label>
+          <label>Método de pago</label>
           <div>
             <input 
               type="radio" 
@@ -76,10 +76,10 @@ export default function Checkout() {
 
         <p className="modal-actions">
           <Button type="button" textOnly onClick={handleClose}>
-            Close
+            Cerrar
           </Button>
           <Button type="button" onClick={handleWhatsAppOrder}>
-            Order via WhatsApp
+            Enviar por WhatsApp
           </Button>
         </p>
       </form>

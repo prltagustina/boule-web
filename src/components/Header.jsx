@@ -1,7 +1,6 @@
 import { useContext } from 'react';
-
 import Button from './UI/Button.jsx';
-import logoImg from '../assets/logo.jpg';
+import logoImg from '../assets/logo.svg'; // Cambiado a SVG
 import CartContext from '../store/CartContext.jsx';
 import UserProgressContext from '../store/UserProgressContext.jsx';
 
@@ -20,12 +19,13 @@ export default function Header() {
   return (
     <header id="main-header">
       <div id="title">
-        <img src={logoImg} alt="A restaurant" />
-        <h1>ReactFood</h1>
+        {/* Cambiado a logo.svg */}
+        <img src={logoImg} alt="Boule logo" width="150" height="150" /> 
+        <h1>BOULE</h1>
       </div>
       <nav>
         <Button textOnly onClick={handleShowCart}>
-          Cart ({totalCartItems})
+          Pedido ({totalCartItems})
         </Button>
       </nav>
     </header>
