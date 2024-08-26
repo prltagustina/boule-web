@@ -11,6 +11,7 @@ export default function Checkout() {
   const cartCtx = useContext(CartContext);
   const userProgressCtx = useContext(UserProgressContext);
   const [paymentMethod, setPaymentMethod] = useState('');
+  const [error, setError] = useState('');
 
   const cartTotal = cartCtx.items.reduce(
     (totalPrice, item) => totalPrice + item.quantity * item.price,
@@ -19,21 +20,53 @@ export default function Checkout() {
 
   function handleClose() {
     userProgressCtx.hideCheckout();
+    setError(''); // Limpiar el mensaje de error al cerrar
   }
 
   function handleWhatsAppOrder(event) {
     event.preventDefault();
 
-    const fd = new FormData(event.target.form);
+    const fd = new FormData(event.target);
     const customerData = Object.fromEntries(fd.entries());
 
-    const orderDetails = cartCtx.items.map(item => `${item.name} (${item.quantity} x ${currencyFormatter.format(item.price)})`).join(', ');
+    // Validar que todos los campos estén completos
+    if (
+      !customerData.name.trim() || 
+      !customerData.email.trim() ||
+      !customerData.street.trim() ||
+      !customerData['postal-code'].trim() ||
+      !customerData.city.trim() ||
+      !paymentMethod
+    ) {
+      setError('Por favor, complete todos los campos y seleccione una forma de pago.');
+      return;
+    }
+
+    // Validar que el carrito no esté vacío
+    if (cartCtx.items.length === 0) {
+      setError('El carrito está vacío. Añade productos antes de enviar el pedido.');
+      return;
+    }
+
+    // Crear mensaje para enviar por WhatsApp
+    const orderDetails = cartCtx.items
+      .map(
+        (item) => `${item.name} (${item.quantity} x ${currencyFormatter.format(item.price)})`
+      )
+      .join(', ');
+
     const message = `Hola, me gustaría hacer un pedido:\n\n${orderDetails}\n\nTotal: ${currencyFormatter.format(cartTotal)}\n\nDetalles del cliente:\nNombre: ${customerData.name}\nEmail: ${customerData.email}\nCalle: ${customerData.street}\nCódigo postal: ${customerData['postal-code']}\nCiudad: ${customerData.city}\n\nMétodo de pago: ${paymentMethod}`;
     
     const encodedMessage = encodeURIComponent(message);
     const whatsappLink = `https://wa.me/543426312155?text=${encodedMessage}`;
 
+    // Abrir la aplicación de WhatsApp y mostrar mensaje de éxito
     window.open(whatsappLink, '_blank');
+    alert('¡Pedido enviado correctamente por WhatsApp!');
+    if (cartCtx.clearCart) { // Verifica que clearCart esté definido
+      cartCtx.clearCart(); 
+    }
+    handleClose(); // Cerrar el modal de checkout
   }
 
   return (
@@ -42,12 +75,14 @@ export default function Checkout() {
         <h2>Resumen del pedido</h2>
         <p>Monto total: {currencyFormatter.format(cartTotal)}</p>
 
-        <Input label="Nombre Completo" type="text" id="name" />
-        <Input label="Correo Electrónico" type="email" id="email" />
-        <Input label="Dirección" type="text" id="street" />
+        {error && <p style={{ color: 'red' }}>{error}</p>} {/* Mensaje de error */}
+
+        <Input label="Nombre Completo" type="text" id="name" name="name" required />
+        <Input label="Correo Electrónico" type="email" id="email" name="email" required />
+        <Input label="Dirección" type="text" id="street" name="street" required />
         <div className="control-row">
-          <Input label="Código Postal" type="text" id="postal-code" />
-          <Input label="Ciudad" type="text" id="city" />
+          <Input label="Código Postal" type="text" id="postal-code" name="postal-code" required />
+          <Input label="Ciudad" type="text" id="city" name="city" required />
         </div>
 
         <div>
@@ -59,6 +94,7 @@ export default function Checkout() {
               name="payment-method" 
               value="Efectivo" 
               onChange={(e) => setPaymentMethod(e.target.value)} 
+              required
             />
             <label htmlFor="cash">Efectivo</label>
           </div>
@@ -69,6 +105,7 @@ export default function Checkout() {
               name="payment-method" 
               value="Transferencia Bancaria" 
               onChange={(e) => setPaymentMethod(e.target.value)} 
+              required
             />
             <label htmlFor="bank-transfer">Transferencia Bancaria</label>
           </div>
@@ -78,7 +115,7 @@ export default function Checkout() {
           <Button type="button" textOnly onClick={handleClose}>
             Cerrar
           </Button>
-          <Button type="button" onClick={handleWhatsAppOrder}>
+          <Button type="submit"> {/* Cambiado a tipo submit para aprovechar la validación del formulario */}
             Enviar por WhatsApp
           </Button>
         </p>
