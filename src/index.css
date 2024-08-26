@@ -1,4 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Lato:wght@400;700&display=swap');
+@font-face {
+  font-family: 'Raleway';
+  src: url('assets/fonts/Raleway-Regular.woff2') format('woff2'),
+       url('assets/fonts/Raleway-Regular.woff') format('woff'),
+       url('assets/fonts/Raleway-Regular.ttf') format('truetype'); /* Opcional */
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('assets/fonts/Raleway-Bold.woff2') format('woff2'),
+       url('assets/fonts/Raleway-Bold.woff') format('woff'),
+       url('assets/fonts/Raleway-Bold.ttf') format('truetype'); /* Opcional */
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('assets/fonts/Lato-Regular.woff2') format('woff2'),
+       url('assets/fonts/Lato-Regular.woff') format('woff'),
+       url('assets/fonts/Lato-Regular.ttf') format('truetype'); /* Opcional */
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('assets/fonts/Lato-Bold.woff2') format('woff2'),
+       url('assets/fonts/Lato-Bold.woff') format('woff'),
+       url('assets/fonts/Lato-Bold.ttf') format('truetype'); /* Opcional */
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 * {
   box-sizing: border-box;
