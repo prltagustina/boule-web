@@ -18,7 +18,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 5%; /* Ajuste inicial para ser más flexible en dispositivos pequeños */
+  padding: 1rem 5%;
 }
 
 #main-header #title {
@@ -29,44 +29,59 @@ body {
 
 /* Estilos generales para el logo */
 #main-header #title img {
-  width: 10vw; /* Tamaño relativo a la vista */
-  max-width: 150px; /* Tamaño máximo para pantallas grandes */
-  height: auto; /* Mantener proporciones */
+  width: 10vw;
+  max-width: 150px;
+  height: auto;
   object-fit: contain;
   border-radius: 50%;
 }
 
-/* Media queries para diferentes dispositivos */
+/* Nueva clase para el nav-container */
+.nav-container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end; /* Alinea el nav a la derecha */
+}
 
-/* Estilo para pantallas grandes (desktop) */
+/* Estilos para diferentes dispositivos */
+
+/* Estilo para desktop */
 @media (min-width: 1025px) {
   #main-header #title img {
-    width: 8vw; /* Ajustar según sea necesario */
+    width: 8vw;
   }
   #main-header {
-    padding: 2rem 10%; /* Ajuste mayor para pantallas grandes */
+    padding: 2rem 10%;
   }
 }
 
 /* Estilo para tablets */
 @media (min-width: 768px) and (max-width: 1024px) {
-  #main-header #title img {
-    width: 12vw; /* Ajustar para tablets */
-  }
   #main-header {
-    padding: 1.5rem 7%; /* Ajuste para tablets */
+    padding: 1.5rem 7%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-container {
+    margin-top: 1rem;
+    justify-content: flex-end; /* Mantiene el nav alineado a la derecha */
+    width: 100%;
   }
 }
 
 /* Estilo para móviles */
 @media (max-width: 767px) {
-  #main-header #title img {
-    width: 15vw; /* Tamaño para móviles */
-  }
   #main-header {
-    padding: 1rem 5%; /* Ajuste para móviles */
-    flex-direction: column; /* Apilar el contenido del header en dispositivos móviles */
-    align-items: flex-start; /* Alinear los elementos del header al inicio */
+    padding: 1rem 5%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-container {
+    margin-top: 1rem;
+    justify-content: flex-end; /* Mantiene el nav alineado a la derecha */
+    width: 100%;
   }
 }
 
@@ -96,10 +111,10 @@ h1 {
   gap: 1rem;
 }
 
-/* Media queries para el contenedor de comidas */
+/* Media queries para el contenedor de imágenes */
 @media (max-width: 1024px) {
   #meals {
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); /* Ajuste para pantallas más pequeñas */
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   }
 }
 
@@ -120,12 +135,12 @@ h1 {
 
 .meal-item img {
   width: 100%;
-  height: auto; /* Mantener proporciones */
-  max-height: 20rem; /* Ajustar altura */
+  height: auto;
+  max-height: 20rem;
   object-fit: cover;
 }
 
-/* Media queries para imágenes de comidas */
+/* Media queries para imágenes */
 @media (min-width: 1025px) {
   .meal-item img {
     max-height: 18rem;

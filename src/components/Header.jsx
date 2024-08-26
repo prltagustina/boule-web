@@ -20,14 +20,17 @@ export default function Header() {
     <header id="main-header">
       <div id="title">
         {/* Cambiado a logo.svg */}
-        <img src={logoImg} alt="Boule logo" width="150" height="150" /> 
+        <img src={logoImg} alt="Boule logo" width="150" height="150" />
         <h1>BOULE</h1>
       </div>
-      <nav>
-        <Button textOnly onClick={handleShowCart}>
-          Pedido ({totalCartItems})
-        </Button>
-      </nav>
+      {/* Añadido contenedor para el nav */}
+      <div className="nav-container">
+        <nav>
+          <Button textOnly onClick={handleShowCart}>
+            Pedido ({totalCartItems})
+          </Button>
+        </nav>
+      </div>
     </header>
   );
 }
