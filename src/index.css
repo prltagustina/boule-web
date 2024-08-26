@@ -61,13 +61,13 @@ body {
 
 #main-header #title {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   align-items: center;
 }
 
 /* Estilos generales para el logo */
 #main-header #title img {
-  width: 10vw;
+  width: 22vw;
   max-width: 150px;
   height: auto;
   object-fit: contain;
