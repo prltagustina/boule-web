@@ -77,12 +77,27 @@ export default function Checkout() {
 
         {error && <p style={{ color: 'red' }}>{error}</p>} {/* Mensaje de error */}
 
-        <Input label="Nombre Completo" type="text" id="name" name="name" required />
-        <Input label="Correo Electrónico" type="email" id="email" name="email" required />
-        <Input label="Dirección" type="text" id="street" name="street" required />
+        <div>
+          <label htmlFor="name">Nombre Completo</label>
+          <Input type="text" id="name" name="name" required autoComplete="name" />
+        </div>
+        <div>
+          <label htmlFor="email">Correo Electrónico</label>
+          <Input type="email" id="email" name="email" required autoComplete="email" />
+        </div>
+        <div>
+          <label htmlFor="street">Dirección</label>
+          <Input type="text" id="street" name="street" required autoComplete="address-line1" />
+        </div>
         <div className="control-row">
-          <Input label="Código Postal" type="text" id="postal-code" name="postal-code" required />
-          <Input label="Ciudad" type="text" id="city" name="city" required />
+          <div>
+            <label htmlFor="postal-code">Código Postal</label>
+            <Input type="text" id="postal-code" name="postal-code" required autoComplete="postal-code" />
+          </div>
+          <div>
+            <label htmlFor="city">Ciudad</label>
+            <Input type="text" id="city" name="city" required autoComplete="address-level2" />
+          </div>
         </div>
 
         <div>
@@ -115,7 +130,7 @@ export default function Checkout() {
           <Button type="button" textOnly onClick={handleClose}>
             Cerrar
           </Button>
-          <Button type="submit"> {/* Cambiado a tipo submit para aprovechar la validación del formulario */}
+          <Button type="submit">
             Enviar por WhatsApp
           </Button>
         </p>
