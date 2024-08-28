@@ -375,3 +375,19 @@ h1 {
     transform: translateY(0);
   }
 }
+
+input:focus,
+button:focus {
+  outline: none;
+  border: 2px solid #ffc404;
+}
+
+.modal {
+  background-color: #1d1a16;
+  color: #d9e2f1;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+
