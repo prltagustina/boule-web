@@ -58,7 +58,7 @@ export default function Checkout() {
       .map(
         (item) => `${item.name} (${item.quantity} x ${currencyFormatter.format(item.price)})`
       )
-      .join(', ');
+      .join('\n')
 
     const message = `Hola, me gustaría hacer un pedido:\n\n${orderDetails}\n\nTotal: ${currencyFormatter.format(cartTotal)}\n\nDetalles del cliente:\nNombre: ${customerData.name}\nEmail: ${customerData.email}\nCalle: ${customerData.street}\nCódigo postal: ${customerData['postal-code']}\nCiudad: ${customerData.city}\n\nMétodo de pago: ${paymentMethod}`;
     
