@@ -11,8 +11,9 @@ export default function Meals() {
   } = useHttp('http://localhost:3000/meals', requestConfig, []);
 
   if (isLoading) {
-    return <p>Cargando productos...</p>;
+    return <p className="loading-text">Cargando productos...</p>;
   }
+  
 
   // if (!data) {
   //   return <p>No meals found.</p>

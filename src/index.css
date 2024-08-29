@@ -244,7 +244,7 @@ h1 {
 
 .modal-actions .text-button:hover,
 .modal-actions .text-button:active {
-  color: #312c1d;
+  color: #ffc404;
 }
 
 .cart-total {
@@ -357,6 +357,8 @@ h1 {
   padding: 1rem;
   width: 80%;
   max-width: 40rem;
+  max-height: 80vh; /* Altura máxima del 80% de la ventana */
+  overflow-y: auto; /* Scroll interno si el contenido es muy grande */
   animation: fade-slide-up 0.3s ease-out forwards;
 }
 
@@ -378,9 +380,9 @@ h1 {
 
 input:focus,
 button:focus {
-  outline: none;
-  border: 2px solid #ffc404;
+    outline: none;
 }
+
 
 .modal {
   background-color: #1d1a16;
@@ -390,4 +392,10 @@ button:focus {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
+.loading-text {
+  text-align: center; 
+  font-size: 1.2rem;  
+  margin: 2rem 0;     
+  color: #d9e2f1;     
+}
 
