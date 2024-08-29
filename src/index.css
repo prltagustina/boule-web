@@ -289,7 +289,7 @@ h1 {
 
 .cart-item-actions button:hover,
 .cart-item-actions button:active {
-  background-color: #1d1a16;
+  background-color: #312c1dd2;
   color: #ffab04;
 }
 
@@ -357,8 +357,6 @@ h1 {
   padding: 1rem;
   width: 80%;
   max-width: 40rem;
-  max-height: 80vh; /* Altura máxima del 80% de la ventana */
-  overflow-y: auto; /* Scroll interno si el contenido es muy grande */
   animation: fade-slide-up 0.3s ease-out forwards;
 }
 
