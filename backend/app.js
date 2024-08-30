@@ -1,28 +1,30 @@
 import fs from 'node:fs/promises';
 import bodyParser from 'body-parser';
 import express from 'express';
+import cors from 'cors';
 
 const app = express();
 
 // Configurar CORS para el frontend local y producción
 const allowedOrigins = ['http://localhost:5175', 'https://boule-elpan.web.app'];
 
-app.use((req, res, next) => {
-  const origin = req.headers.origin;
-  if (allowedOrigins.includes(origin)) {
-    res.setHeader('Access-Control-Allow-Origin', origin);
-    res.setHeader('Access-Control-Allow-Private-Network', 'true'); // Asegurar que esté presente
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Incluye 'Authorization' si usas tokens
-  }
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: 'GET, POST, OPTIONS',
+  allowedHeaders: 'Content-Type, Authorization', // Incluye 'Authorization' si usas tokens
+};
 
-  // Responder a las solicitudes OPTIONS (preflight)
-  if (req.method === 'OPTIONS') {
-    return res.sendStatus(204); // Responder con 204 No Content
-  }
+// Aplicar la configuración CORS a todas las solicitudes
+app.use(cors(corsOptions));
 
-  next();
-});
+// Responder a las solicitudes OPTIONS (preflight)
+app.options('*', cors(corsOptions));
 
 app.use(bodyParser.json());
 app.use(express.static('public'));

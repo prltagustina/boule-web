@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL; // Lee la URL base desde las variables de entorno
+
 async function sendHttpRequest(url, config) {
-  const response = await fetch(url, config);
+  const response = await fetch(`${API_BASE_URL}${url}`, config); // Usa la URL base
 
   const resData = await response.json();
 
