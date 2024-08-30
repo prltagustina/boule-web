@@ -4,76 +4,76 @@
     "name": "Pan De Campo en Hogaza",
     "price": "3800",
     "description": "Creamy cheddar cheese mixed with perfectly cooked macaroni, topped with crispy breadcrumbs. A classic comfort food.",
-    "image": "images/mac-and-cheese.jpg"
+    "image": "https://firebasestorage.googleapis.com/v0/b/boule-elpan.appspot.com/o/images%2Fmac-and-cheese.jpg?alt=media&token=4fc99196-4833-470a-b2c7-d61fa616761f"
   },
   {
     "id": "m2",
     "name": "Pan De Campo Zeppelin",
     "price": "4000",
     "description": "A classic pizza with fresh mozzarella, tomatoes, and basil on a thin and crispy crust.",
-    "image": "images/margherita-pizza.jpg"
+    "image": "https://firebasestorage.googleapis.com/v0/b/boule-elpan.appspot.com/o/images%2Fmargherita-pizza.jpg?alt=media&token=f631fc8c-39c8-49be-8054-07626860576c"
   },
   {
     "id": "m3",
     "name": "Pan Lactal",
     "price": "4200",
     "description": "Romaine lettuce tossed in Caesar dressing, topped with croutons and parmesan shavings.",
-    "image": "images/caesar-salad.jpg"
+    "image": "https://firebasestorage.googleapis.com/v0/b/boule-elpan.appspot.com/o/images%2Fcaesar-salad.jpg?alt=media&token=df08fcc9-d0a3-4b8a-b96e-d303107687e2"
   },
   {
     "id": "m4",
     "name": "Pan De Centeno",
     "price": "4200",
     "description": "Al dente spaghetti with a creamy sauce made from egg yolk, pecorino cheese, pancetta, and pepper.",
-    "image": "images/spaghetti-carbonara.jpg"
+    "image": "https://firebasestorage.googleapis.com/v0/b/boule-elpan.appspot.com/o/images%2Fspaghetti-carbonara.jpg?alt=media&token=a5d781dc-3ecc-425b-a406-1fa1c8294970"
   },
   {
     "id": "m5",
     "name": "Ciabatta",
     "price": "1800",
     "description": "A juicy veggie patty served on a whole grain bun with lettuce, tomato, and a tangy sauce.",
-    "image": "images/veggie-burger.jpg"
+    "image": "https://firebasestorage.googleapis.com/v0/b/boule-elpan.appspot.com/o/images%2Fveggie-burger.jpg?alt=media&token=6149984c-7ec0-496d-afe7-415b2eed9618"
   },
   {
     "id": "m6",
     "name": "Focaccia Con Hongos Grande",
     "price": "4500",
     "description": "Tender grilled chicken breast with avocado, bacon, lettuce, and honey mustard on a toasted bun.",
-    "image": "images/grilled-chicken-sandwich.jpg"
+    "image": "https://firebasestorage.googleapis.com/v0/b/boule-elpan.appspot.com/o/images%2Fgrilled-chicken-sandwich.jpg?alt=media&token=e03e7523-bace-4133-8a05-d430978cf370"
   },
   {
     "id": "m7",
     "name": "Focaccia Con Hongos Chica",
     "price": "2400",
     "description": "Succulent steak cooked to your preference, served with crispy golden fries and herb butter.",
-    "image": "images/steak-frites.jpg"
+    "image": "https://firebasestorage.googleapis.com/v0/b/boule-elpan.appspot.com/o/images%2Fsteak-frites.jpg?alt=media&token=a50d29e2-9e24-48b4-a063-2945e910c78c"
   },
   {
     "id": "m8",
     "name": "Focaccia Con Queso Azul Grande",
     "price": "4500",
     "description": "An assortment of fresh sushi rolls including California, Spicy Tuna, and Eel Avocado.",
-    "image": "images/sushi-roll-platter.jpg"
+    "image": "https://firebasestorage.googleapis.com/v0/b/boule-elpan.appspot.com/o/images%2Fsushi-roll-platter.jpg?alt=media&token=0d25157f-2130-4600-a052-0ab74a828fa2"
   },
   {
     "id": "m9",
     "name": "Focaccia Con Queso Azul Chica",
     "price": "2400",
     "description": "Tender pieces of chicken simmered in a rich and aromatic curry sauce, served with basmati rice.",
-    "image": "images/chicken-curry.jpg"
+    "image": "https://firebasestorage.googleapis.com/v0/b/boule-elpan.appspot.com/o/images%2Fchicken-curry.jpg?alt=media&token=4da209cb-9ac9-4c02-9f8c-fde611a56b72"
   },
   {
     "id": "m10",
     "name": "Focaccia Con Cherrys Grande",
     "price": "4500",
     "description": "A hearty bowl filled with quinoa, roasted veggies, avocado, and a tahini dressing.",
-    "image": "images/vegan-buddha-bowl.jpg"
+    "image": "https://firebasestorage.googleapis.com/v0/b/boule-elpan.appspot.com/o/images%2Fvegan-buddha-bowl.jpg?alt=media&token=2a19c20c-bf69-45ca-9539-c54fcd542d35"
   },
   {
     "id": "m11",
     "name": "Focaccia Con Cherrys Chica",
     "price": "2400",
     "description": "A Spanish delicacy filled with saffron-infused rice, shrimp, mussels, and chorizo.",
-    "image": "images/seafood-paella.jpg"
+    "image": "https://firebasestorage.googleapis.com/v0/b/boule-elpan.appspot.com/o/images%2Fseafood-paella.jpg?alt=media&token=c3c67a0e-de7d-4f58-a4df-642e6a54bde4"
   } 
 ]
