@@ -4,21 +4,22 @@ import express from 'express';
 
 const app = express();
 
-// Configurar CORS para el frontend local
+// Configurar CORS para el frontend local y producción
 const allowedOrigins = ['http://localhost:5175', 'https://boule-elpan.web.app'];
 
 app.use((req, res, next) => {
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {
     res.setHeader('Access-Control-Allow-Origin', origin);
-    res.setHeader('Access-Control-Allow-Private-Network', 'true'); // Agregar este encabezado
+    res.setHeader('Access-Control-Allow-Private-Network', 'true'); // Asegurar que esté presente
   }
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  
-  // Manejar solicitudes OPTIONS (preflight)
+
+  // Responder a las solicitudes OPTIONS (preflight)
   if (req.method === 'OPTIONS') {
-    return res.sendStatus(200);
+    res.setHeader('Access-Control-Allow-Private-Network', 'true');
+    return res.sendStatus(204); // Cambiar a 204 para las solicitudes preflight
   }
 
   next();
@@ -36,9 +37,7 @@ app.post('/orders', async (req, res) => {
   const orderData = req.body.order;
 
   if (orderData === null || orderData.items === null || orderData.items.length === 0) {
-    return res
-      .status(400)
-      .json({ message: 'Missing data.' });
+    return res.status(400).json({ message: 'Missing data.' });
   }
 
   if (
@@ -54,8 +53,7 @@ app.post('/orders', async (req, res) => {
     orderData.customer.city.trim() === ''
   ) {
     return res.status(400).json({
-      message:
-        'Missing data: Email, name, street, postal code or city is missing.',
+      message: 'Missing data: Email, name, street, postal code or city is missing.',
     });
   }
 
@@ -75,5 +73,5 @@ app.use((req, res) => {
 });
 
 app.listen(3000, () => {
-  console.log('Server running on port 3000');
+  console.log('Server is running on port 3000');
 });
