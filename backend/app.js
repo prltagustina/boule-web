@@ -4,7 +4,6 @@ import express from 'express';
 
 const app = express();
 
-// Configurar CORS para el frontend local
 const allowedOrigins = ['http://localhost:5175', 'https://boule-elpan.web.app'];
 
 app.use((req, res, next) => {
@@ -12,9 +11,19 @@ app.use((req, res, next) => {
   if (allowedOrigins.includes(origin)) {
     res.setHeader('Access-Control-Allow-Origin', origin);
   }
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Private-Network', 'true');
   next();
+});
+
+// Manejar las solicitudes preflight (OPTIONS)
+app.options('*', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Private-Network', 'true');
+  res.sendStatus(200);
 });
 
 app.use(bodyParser.json());
@@ -22,6 +31,7 @@ app.use(express.static('public'));
 
 app.get('/meals', async (req, res) => {
   const meals = await fs.readFile('./data/available-meals.json', 'utf8');
+  res.setHeader('Access-Control-Allow-Private-Network', 'true');
   res.json(JSON.parse(meals));
 });
 
@@ -64,10 +74,6 @@ app.post('/orders', async (req, res) => {
 });
 
 app.use((req, res) => {
-  if (req.method === 'OPTIONS') {
-    return res.sendStatus(200);
-  }
-
   res.status(404).json({ message: 'Not found' });
 });
 
