@@ -5,7 +5,7 @@ import express from 'express';
 const app = express();
 
 // Configurar CORS para el frontend local
-const allowedOrigin = 'http://localhost:5175'; // Dominio del frontend en desarrollo local
+const allowedOrigins = ['http://localhost:5175', 'https://boule-elpan.web.app'];
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', allowedOrigin);
