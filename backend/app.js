@@ -8,9 +8,19 @@ const app = express();
 const allowedOrigins = ['http://localhost:5175', 'https://boule-elpan.web.app'];
 
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', allowedOrigin);
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Access-Control-Allow-Private-Network', 'true'); // Agregar este encabezado
+  }
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  
+  // Manejar solicitudes OPTIONS (preflight)
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(200);
+  }
+
   next();
 });
 
@@ -61,11 +71,9 @@ app.post('/orders', async (req, res) => {
 });
 
 app.use((req, res) => {
-  if (req.method === 'OPTIONS') {
-    return res.sendStatus(200);
-  }
-
   res.status(404).json({ message: 'Not found' });
 });
 
-app.listen(3000);
+app.listen(3000, () => {
+  console.log('Server running on port 3000');
+});
