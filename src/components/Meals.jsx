@@ -8,7 +8,7 @@ export default function Meals() {
     data: loadedMeals,
     isLoading,
     error,
-  } = useHttp('https://boule-elpan.web.app/meals', requestConfig, []);
+  } = useHttp('http://localhost:3000/meals', requestConfig, []);
 
   if (isLoading) {
     return <p className="loading-text">Cargando productos...</p>;
