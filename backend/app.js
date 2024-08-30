@@ -12,14 +12,13 @@ app.use((req, res, next) => {
   if (allowedOrigins.includes(origin)) {
     res.setHeader('Access-Control-Allow-Origin', origin);
     res.setHeader('Access-Control-Allow-Private-Network', 'true'); // Asegurar que esté presente
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Incluye 'Authorization' si usas tokens
   }
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   // Responder a las solicitudes OPTIONS (preflight)
   if (req.method === 'OPTIONS') {
-    res.setHeader('Access-Control-Allow-Private-Network', 'true');
-    return res.sendStatus(204); // Cambiar a 204 para las solicitudes preflight
+    return res.sendStatus(204); // Responder con 204 No Content
   }
 
   next();
