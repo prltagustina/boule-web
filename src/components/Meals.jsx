@@ -15,9 +15,9 @@ export default function Meals() {
   }
   
 
-   if (!data) {
-    return <p>No meals found.</p>
-   }
+  // if (!data) {
+  //   return <p>No meals found.</p>
+  // }
 
   return (
     <ul id="meals">
