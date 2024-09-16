@@ -32,7 +32,21 @@ export default function Checkout() {
     event.preventDefault();
 
     const fd = new FormData(event.target);
-    const customerData = Object.fromEntries(fd.entries());
+    const customerData = Object.fromEntries(fd.entries()); // Enviar petición HTTP al backend + los datos del carrito
+
+    //fetch('http://localhost:3000/oders', {
+     // method: 'POST',
+     // headers: {
+     //  'Content-type': 'application/json'
+     // },
+     // body: JSON.stringify ( {
+      //  order: {
+       //   items: cartCtx,
+      //    customer: customerData
+     //   }
+    //  })
+   // }) 
+  
 
     // Validar que todos los campos estén completos
     if (

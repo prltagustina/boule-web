@@ -48,8 +48,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(#29251c, #2c2306);
-  color: #d9e2f1;
+  color: #F4F4F4;
   min-height: 100vh;
+}
+
+.center {
+  text-align: center;
 }
 
 #main-header {
@@ -239,7 +243,7 @@ h1 {
 }
 
 .modal-actions .text-button {
-  color: #d9e2f1;
+  color: #F4F4F4;
 }
 
 .modal-actions .text-button:hover,
@@ -253,7 +257,7 @@ h1 {
   margin: 2rem 0;
   font-size: 1.15rem;
   font-weight: bold;
-  color: #46443c;
+  color: #F4F4F4;
 }
 
 .cart-item {
@@ -381,10 +385,9 @@ button:focus {
     outline: none;
 }
 
-
 .modal {
   background-color: #1d1a16;
-  color: #d9e2f1;
+  color: #F4F4F4;
   padding: 1.5rem;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
@@ -396,4 +399,3 @@ button:focus {
   margin: 2rem 0;     
   color: #d9e2f1;     
 }
-
