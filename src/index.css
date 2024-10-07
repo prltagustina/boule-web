@@ -60,15 +60,15 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 5%;
+  padding: 3rem 5%; /* Aumenta el padding superior */
 }
 
 #main-header #title {
   display: flex;
   gap: 2rem;
   align-items: center;
+  margin-top: 2rem; /* Añade margen superior adicional al título */
 }
-
 /* Estilos generales para el logo */
 #main-header #title img {
   width: 22vw;

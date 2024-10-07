@@ -12,7 +12,7 @@ export default function Meals() {
   } = useHttp('http://localhost:3000/meals', requestConfig, []);
 
   if (isLoading) {
-    return <p className="center">Cargando productos</p>;
+    return <p className="center">Cargando productos...</p>;
   }
 
   if (error) {
